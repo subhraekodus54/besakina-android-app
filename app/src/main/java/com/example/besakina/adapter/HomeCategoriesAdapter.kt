@@ -37,6 +37,7 @@ class HomeCategoriesAdapter (private val itemList: List<HomeCategoriesModel>, pr
                 Glide.with(context)
                     .load(drawableResourceId)
                     .into(imageView)
+                nameTv.text = data?.name
             }
         }
     }

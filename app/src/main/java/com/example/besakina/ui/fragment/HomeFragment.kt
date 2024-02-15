@@ -36,11 +36,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val listOne: ArrayList<HomeCategoriesModel> = ArrayList()
-        listOne.add(HomeCategoriesModel("properties"))
-        listOne.add(HomeCategoriesModel("services"))
-        listOne.add(HomeCategoriesModel("vehicle"))
-        listOne.add(HomeCategoriesModel("pets___services"))
-        listOne.add(HomeCategoriesModel("properties"))
+        listOne.add(HomeCategoriesModel("properties", "Properties"))
+        listOne.add(HomeCategoriesModel("services", "Services"))
+        listOne.add(HomeCategoriesModel("vehicle", "Vehicle"))
+        listOne.add(HomeCategoriesModel("pets___services", "Pet care"))
+        listOne.add(HomeCategoriesModel("properties", "Properties"))
         initCategoriesRecyclerView(listOne)
 
         val featuredAds: ArrayList<AddsModel> = ArrayList()

@@ -13,7 +13,6 @@ import com.example.besakina.utils.isConnectedToInternet
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivitySplashBinding.inflate(layoutInflater)
@@ -24,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun checkInternet(){
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
             finish() }, 3000)
     }

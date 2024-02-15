@@ -1,13 +1,16 @@
 package com.example.besakina.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.besakina.MainActivity
 import com.example.besakina.R
 import com.example.besakina.databinding.FeatureAdsItemLayoutBinding
 import com.example.besakina.model.AddsModel
+import com.example.besakina.ui.activity.AdDetailsActivity
 
 class FeaturedAdsAdapter (private val itemList: List<AddsModel>, private val context: Context):
     RecyclerView.Adapter<FeaturedAdsAdapter.ViewHolder>() {
@@ -43,6 +46,11 @@ class FeaturedAdsAdapter (private val itemList: List<AddsModel>, private val con
                 itemDescTv.text = data?.desc
                 priceTv.text = data?.price
                 locTv.text = data?.location
+
+                root.setOnClickListener {
+                    val intent = Intent(context, AdDetailsActivity::class.java)
+                    context.startActivity(intent)
+                }
             }
         }
     }
