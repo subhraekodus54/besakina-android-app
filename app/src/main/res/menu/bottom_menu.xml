@@ -8,10 +8,6 @@
         android:title="Categories"
         android:icon="@drawable/categories_icon"/>
     <item
-        android:id="@+id/createPostFragment"
-        android:title="Ad post"
-        android:icon="@drawable/create_post_icon"/>
-    <item
         android:title="Post Added"
         android:id="@+id/adPostFragment"
         android:icon="@drawable/post_added_icon"/>

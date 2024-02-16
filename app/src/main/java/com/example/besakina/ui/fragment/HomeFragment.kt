@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.besakina.R
@@ -14,8 +15,9 @@ import com.example.besakina.adapter.HomeCategoriesAdapter
 import com.example.besakina.databinding.FragmentHomeBinding
 import com.example.besakina.model.AddsModel
 import com.example.besakina.model.HomeCategoriesModel
+import com.example.besakina.utils.ClickListener
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +39,10 @@ class HomeFragment : Fragment() {
 
         val listOne: ArrayList<HomeCategoriesModel> = ArrayList()
         listOne.add(HomeCategoriesModel("properties", "Properties"))
-        listOne.add(HomeCategoriesModel("services", "Services"))
         listOne.add(HomeCategoriesModel("vehicle", "Vehicle"))
-        listOne.add(HomeCategoriesModel("pets___services", "Pet care"))
-        listOne.add(HomeCategoriesModel("properties", "Properties"))
+        listOne.add(HomeCategoriesModel("health_and_wellness", "Health"))
+        listOne.add(HomeCategoriesModel("hospitality_travel_tourism", "Hospitality"))
+        listOne.add(HomeCategoriesModel("education_learning", "Education"))
         initCategoriesRecyclerView(listOne)
 
         val featuredAds: ArrayList<AddsModel> = ArrayList()
@@ -100,13 +102,16 @@ class HomeFragment : Fragment() {
             "1 BDS - 1 BA - 1010 Ft square luxurious apartment for sale."))
         initAllAdsRecyclerView(allAds)
 
+        binding.seeAllCatHtv.setOnClickListener {
+            findNavController().navigate(R.id.categoriesFragment)
+        }
     }
 
     private fun initCategoriesRecyclerView(list: List<HomeCategoriesModel>){
         val mLayoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.categoriesRecycler.apply {
             layoutManager = mLayoutManager
-            adapter = HomeCategoriesAdapter(list,requireActivity())
+            adapter = HomeCategoriesAdapter(list,requireActivity(), this@HomeFragment)
         }
     }
 
@@ -124,5 +129,9 @@ class HomeFragment : Fragment() {
             layoutManager = mLayoutManager
             adapter = AllAdsAdapter(list, requireActivity())
         }
+    }
+
+    override fun onClick(view: View, data: String?) {
+        findNavController().navigate(R.id.action_homeFragment_to_categoryDetailsFragment)
     }
 }
