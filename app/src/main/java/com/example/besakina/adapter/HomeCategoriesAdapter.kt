@@ -41,7 +41,7 @@ class HomeCategoriesAdapter (private val itemList: List<HomeCategoriesModel>, pr
                     .into(imageView)
                 nameTv.text = data?.name
                 root.setOnClickListener {
-                    clickListener.onClick(it.rootView, null)
+                    clickListener.onClick(it.rootView, data?.name)
                 }
             }
         }

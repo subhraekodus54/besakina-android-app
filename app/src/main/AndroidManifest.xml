@@ -16,6 +16,21 @@
         android:theme="@style/Theme.Besakina"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.EducationFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.HospitalityFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.HealthFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.VehicleFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.PropertiesFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.AdPostActivity"
             android:exported="false" />
         <activity
