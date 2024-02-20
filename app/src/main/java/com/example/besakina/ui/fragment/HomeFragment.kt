@@ -1,5 +1,6 @@
 package com.example.besakina.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.example.besakina.adapter.HomeCategoriesAdapter
 import com.example.besakina.databinding.FragmentHomeBinding
 import com.example.besakina.model.AddsModel
 import com.example.besakina.model.HomeCategoriesModel
+import com.example.besakina.ui.activity.SearchActivity
 import com.example.besakina.utils.ClickListener
 
 class HomeFragment : Fragment(), ClickListener {
@@ -36,6 +38,11 @@ class HomeFragment : Fragment(), ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.consLayOne.setOnClickListener {
+            val intent = Intent(requireActivity(), SearchActivity::class.java)
+            startActivity(intent)
+        }
 
         val listOne: ArrayList<HomeCategoriesModel> = ArrayList()
         listOne.add(HomeCategoriesModel("properties", "Properties"))

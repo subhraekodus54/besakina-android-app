@@ -30,9 +30,9 @@
     </fragment>
     <fragment
         android:id="@+id/adPostFragment"
-        android:name="com.example.besakina.ui.fragment.AdPostFragment"
+        android:name="com.example.besakina.ui.fragment.MyAdsFragment"
         android:label="fragment_ad_post"
-        tools:layout="@layout/fragment_ad_post" />
+        tools:layout="@layout/fragment_my_ads" />
     <fragment
         android:id="@+id/categoryDetailsFragment"
         android:name="com.example.besakina.ui.fragment.CategoryDetailsFragment"

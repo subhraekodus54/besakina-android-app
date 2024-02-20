@@ -46,18 +46,23 @@ class AdPostActivity : AppCompatActivity(), ClickListener {
         if(data == "Properties"){
             val intent = Intent(this, PropertiesFormActivity::class.java)
             startActivity(intent)
+            finish()
         }else if(data == "Vehicle"){
             val intent = Intent(this, VehicleFormActivity::class.java)
             startActivity(intent)
+            finish()
         }else if(data == "Health"){
-            val intent = Intent(this, HealthFormActivity::class.java)
+            val intent = Intent(this, HospitalTypeActivity::class.java)
             startActivity(intent)
+            finish()
         }else if(data == "Hospitality"){
             val intent = Intent(this, HospitalityFormActivity::class.java)
             startActivity(intent)
+            finish()
         }else if(data == "Education"){
             val intent = Intent(this, EducationFormActivity::class.java)
             startActivity(intent)
+            finish()
         }else{
             Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show()
         }

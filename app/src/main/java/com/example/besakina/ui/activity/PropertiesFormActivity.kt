@@ -1,10 +1,13 @@
 package com.example.besakina.ui.activity
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.example.besakina.R
 import com.example.besakina.databinding.ActivityAdPostBinding
 import com.example.besakina.databinding.ActivityEducationFormBinding
@@ -16,10 +19,13 @@ class PropertiesFormActivity : AppCompatActivity() {
     val bedRoomList: Array<String> =  arrayOf("Select Bedrooms", "1", "2", "3", "4", "4+")
     val bathRoomsList: Array<String> =  arrayOf("Select Bathrooms", "1", "2", "3", "4", "4+")
     val listedByList: Array<String> =  arrayOf("Listed by", "Builder", "Dealer", "Owner")
+    val parkingByList: Array<String> =  arrayOf("Car parking", "0", "1", "2", "3", "3+")
 
     var bedRoom: String = ""
     var bathRoom: String = ""
     var listedBy: String = ""
+    var parking: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityPropertiesFormBinding.inflate(layoutInflater)
@@ -29,6 +35,15 @@ class PropertiesFormActivity : AppCompatActivity() {
         setUpBedroomSpinner()
         setUpBathroomSpinner()
         setUpListedBySpinner()
+        setUpParkingSpinner()
+
+        binding.backArrow.setOnClickListener {
+            finish()
+        }
+
+        binding.postBtn.setOnClickListener {
+            showAcceptDialog()
+        }
     }
     private fun setUpBedroomSpinner(){
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,bedRoomList)
@@ -83,9 +98,9 @@ class PropertiesFormActivity : AppCompatActivity() {
             AdapterView.OnItemClickListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if(p2 == 0){
-                    bathRoom = ""
+                    listedBy = ""
                 }else{
-                    bathRoom = listedByList[p2]
+                    listedBy = listedByList[p2]
                 }
             }
 
@@ -97,5 +112,45 @@ class PropertiesFormActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun setUpParkingSpinner(){
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,parkingByList)
+        binding.parkingSpinner.adapter = arrayAdapter
+        binding.parkingSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                if(p2 == 0){
+                    parking = ""
+                }else{
+                    parking = parkingByList[p2]
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+            }
+        }
+    }
+
+    private fun showAcceptDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(R.layout.ad_post_success_dialog_layout)
+
+        val okay = dialog.findViewById<TextView>(R.id.ok_btn)
+
+        okay.setOnClickListener {
+            dialog.dismiss()
+            finish()
+        }
+
+        dialog.show()
     }
 }

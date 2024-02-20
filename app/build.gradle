@@ -62,4 +62,8 @@ dependencies {
 
     //heart button
     //implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    //Lottie Android
+    implementation "com.airbnb.android:lottie:3.4.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.10"
 }
