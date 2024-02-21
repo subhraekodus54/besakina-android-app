@@ -1,5 +1,6 @@
 package com.example.besakina.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.besakina.R
@@ -14,6 +15,16 @@ class HospitalTypeActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.backArrow.setOnClickListener {
             finish()
+        }
+
+        binding.doctorLay.setOnClickListener {
+            val intent = Intent(this, DoctorsFormActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.hospitalLay.setOnClickListener {
+            val intent = Intent(this, ClinicFormActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,11 +1,12 @@
 package com.example.besakina.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.besakina.R
 import com.example.besakina.databinding.ActivityAdDetailsBinding
-import com.example.besakina.databinding.ActivitySplashBinding
+
 
 class AdDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdDetailsBinding
@@ -22,6 +23,11 @@ class AdDetailsActivity : AppCompatActivity() {
 
         binding.backArrow.setOnClickListener {
             finish()
+        }
+        binding.contactButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:0123456789")
+            startActivity(intent)
         }
     }
 }

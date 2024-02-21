@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.HospitalityFormActivity">
+    tools:context=".ui.activity.ClinicFormActivity">
     <ImageView
         android:id="@+id/back_arrow"
         android:layout_width="40dp"
@@ -102,35 +102,6 @@
                     android:hint="Full Address"
                     android:inputType="numberDecimal"
                     android:maxLength="3"
-                    android:singleLine="true"
-                    android:textColor="@color/text_color"
-                    android:textCursorDrawable="@null"
-                    android:textSize="15sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/price_lay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/sharp_corner_border_bg"
-                android:textColorHint="@color/black"
-                app:boxBackgroundColor="@color/transparent"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:helperText=""
-                app:helperTextTextColor="@color/text_color"
-                app:hintTextColor="@color/text_color"
-                tools:ignore="MissingClass">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/price_txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Price (per month)*"
-                    android:inputType="numberDecimal"
                     android:singleLine="true"
                     android:textColor="@color/text_color"
                     android:textCursorDrawable="@null"

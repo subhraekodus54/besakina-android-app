@@ -9,18 +9,17 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.besakina.R
-import com.example.besakina.databinding.ActivityAdPostBinding
-import com.example.besakina.databinding.ActivityEducationFormBinding
-import com.example.besakina.databinding.ActivityHospitalityFormBinding
+import com.example.besakina.databinding.ActivityClinicFormBinding
+import com.example.besakina.databinding.ActivityDoctorsFormBinding
 
-class HospitalityFormActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHospitalityFormBinding
-    val typeList: Array<String> =  arrayOf("Select Type", "Hotel", "Guest House", "Homestay", "Resort", "Paying Guest")
+class ClinicFormActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityClinicFormBinding
+    val typeList: Array<String> =  arrayOf("Select Type", "Hospital", "Clinic", "Laboratory", "Nursing Home")
 
     var type: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityHospitalityFormBinding.inflate(layoutInflater)
+        binding= ActivityClinicFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.backArrow.setOnClickListener {

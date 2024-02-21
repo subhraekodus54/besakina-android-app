@@ -9,18 +9,17 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.besakina.R
-import com.example.besakina.databinding.ActivityAdPostBinding
-import com.example.besakina.databinding.ActivityEducationFormBinding
-import com.example.besakina.databinding.ActivityHospitalityFormBinding
+import com.example.besakina.databinding.ActivityDoctorsFormBinding
+import com.example.besakina.databinding.ActivityHospitalTypeBinding
 
-class HospitalityFormActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHospitalityFormBinding
-    val typeList: Array<String> =  arrayOf("Select Type", "Hotel", "Guest House", "Homestay", "Resort", "Paying Guest")
+class DoctorsFormActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDoctorsFormBinding
+    val expertiseList: Array<String> =  arrayOf("Select expertise", "Child", "Gastro intestine", "Cardiology", "Ophthalmology", "Orthopaedic","Gynecology","Emergency medicine","Physician","Others")
 
-    var type: String = ""
+    var expertise: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityHospitalityFormBinding.inflate(layoutInflater)
+        binding= ActivityDoctorsFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.backArrow.setOnClickListener {
@@ -30,19 +29,19 @@ class HospitalityFormActivity : AppCompatActivity() {
             showAcceptDialog()
         }
         //spinner
-        setTypeSpinner()
+        setExpertiseSpinner()
     }
 
-    private fun setTypeSpinner(){
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,typeList)
-        binding.typeSpinner.adapter = arrayAdapter
-        binding.typeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
+    private fun setExpertiseSpinner(){
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,expertiseList)
+        binding.expertiesSpinner.adapter = arrayAdapter
+        binding.expertiesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
             AdapterView.OnItemClickListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if(p2 == 0){
-                    type = ""
+                    expertise = ""
                 }else{
-                    type = typeList[p2]
+                    expertise = expertiseList[p2]
                 }
             }
 

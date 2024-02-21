@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.besakina.R
 import com.example.besakina.adapter.AllAdsAdapter
 import com.example.besakina.adapter.FeaturedAdsAdapter
@@ -17,6 +18,7 @@ import com.example.besakina.databinding.FragmentHomeBinding
 import com.example.besakina.model.AddsModel
 import com.example.besakina.model.HomeCategoriesModel
 import com.example.besakina.ui.activity.SearchActivity
+import com.example.besakina.ui.activity.SetLocationActivity
 import com.example.besakina.utils.ClickListener
 
 class HomeFragment : Fragment(), ClickListener {
@@ -41,6 +43,11 @@ class HomeFragment : Fragment(), ClickListener {
 
         binding.consLayOne.setOnClickListener {
             val intent = Intent(requireActivity(), SearchActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.locLay.setOnClickListener {
+            val intent = Intent(requireActivity(), SetLocationActivity::class.java)
             startActivity(intent)
         }
 
@@ -109,9 +116,12 @@ class HomeFragment : Fragment(), ClickListener {
             "1 BDS - 1 BA - 1010 Ft square luxurious apartment for sale."))
         initAllAdsRecyclerView(allAds)
 
-        binding.seeAllCatHtv.setOnClickListener {
-            findNavController().navigate(R.id.categoriesFragment)
-        }
+        //banner
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel("https://www.cyberclick.net/hs-fs/hubfs/20%20Creative%20and%20Powerful%20Facebook%20Ad%20Examples.jpg?width=850&name=20%20Creative%20and%20Powerful%20Facebook%20Ad%20Examples.jpg"))
+        imageList.add(SlideModel("https://plus.unsplash.com/premium_photo-1676139292936-a2958a0d7177?q=80&w=1618&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"))
+        imageList.add(SlideModel("https://www.cyberclick.net/hubfs/What%20Are%20Social%20Media%20Ads.jpg"))
+        binding.imageSlider.setImageList(imageList)
     }
 
     private fun initCategoriesRecyclerView(list: List<HomeCategoriesModel>){
