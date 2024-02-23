@@ -66,4 +66,18 @@ dependencies {
     //Lottie Android
     implementation "com.airbnb.android:lottie:3.4.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.10"
+
+    //Image compress
+    implementation 'id.zelory:compressor:3.0.1'
+
+    //permission Listener
+    implementation 'com.karumi:dexter:6.2.3'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
 }
