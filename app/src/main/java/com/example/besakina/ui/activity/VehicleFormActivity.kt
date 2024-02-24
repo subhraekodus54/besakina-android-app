@@ -21,7 +21,10 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.net.toUri
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.besakina.R
+import com.example.besakina.adapter.ImageListAdapter
 import com.example.besakina.databinding.ActivityAdPostBinding
 import com.example.besakina.databinding.ActivityEducationFormBinding
 import com.example.besakina.databinding.ActivityVehicleFormBinding
@@ -47,11 +50,17 @@ class VehicleFormActivity : AppCompatActivity() {
     private var imageUri: Uri? = null
     private var absolutePath: String? = null
     private val imageList:MutableList<ImageListModel> = mutableListOf()
+    lateinit var adapter: ImageListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityVehicleFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        adapter = ImageListAdapter(mutableListOf(),this)
+        binding.vehicleRecycler.adapter = adapter
+        val layoutManager = GridLayoutManager(this, 3)
+        binding.vehicleRecycler.layoutManager = layoutManager
 
         binding.backArrow.setOnClickListener {
             finish()
@@ -203,7 +212,8 @@ class VehicleFormActivity : AppCompatActivity() {
                 val path = getRealPathFromUri(imageUri)
                 val imageFile = File(path!!)
                 absolutePath = imageFile.absolutePath
-                setImage(imageUri!!, absolutePath!!)
+                //setImage(imageUri!!, absolutePath!!)
+                adapter.add(ImageListModel(imageUri!!, absolutePath!!))
             } catch (e: Exception) {
                 e.printStackTrace()
             }
