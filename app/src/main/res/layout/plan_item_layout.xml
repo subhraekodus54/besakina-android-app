@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@drawable/sharp_corner_border_bg">
+    <TextView
+        android:id="@+id/price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color"
+        android:text="₹2999"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/validity_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Validity: 30 days"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toEndOf="@+id/price_tv"
+        app:layout_constraintTop_toTopOf="@+id/price_tv"
+        app:layout_constraintEnd_toStartOf="@+id/arrow"/>
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/desc_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Data: 15 post per month complementary featured ad on banner section | Validity: 30 days."
+        android:textSize="15sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toEndOf="@+id/price_tv"
+        app:layout_constraintTop_toBottomOf="@+id/validity_tv"
+        app:layout_constraintEnd_toStartOf="@+id/arrow"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
