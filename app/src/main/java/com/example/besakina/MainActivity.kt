@@ -9,7 +9,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.besakina.databinding.ActivityMainBinding
 import com.example.besakina.ui.activity.AdPostActivity
 import com.example.besakina.ui.activity.AuthActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

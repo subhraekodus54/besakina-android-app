@@ -5,6 +5,9 @@ import android.os.Bundle
 import com.example.besakina.R
 import com.example.besakina.databinding.ActivityAdDetailsBinding
 import com.example.besakina.databinding.ActivityAuthBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {

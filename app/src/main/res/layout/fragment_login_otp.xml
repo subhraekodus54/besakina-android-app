@@ -21,7 +21,6 @@
         android:id="@+id/text_view_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="We have sent your verification code to +918011299887"
         android:textSize="18sp"
         android:textColor="@color/text_color"
         android:layout_marginTop="20dp"

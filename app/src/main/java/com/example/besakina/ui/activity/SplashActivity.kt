@@ -9,6 +9,7 @@ import com.example.besakina.MainActivity
 import com.example.besakina.R
 import com.example.besakina.databinding.ActivityMainBinding
 import com.example.besakina.databinding.ActivitySplashBinding
+import com.example.besakina.utils.PrefManager
 import com.example.besakina.utils.isConnectedToInternet
 
 class SplashActivity : AppCompatActivity() {
@@ -23,9 +24,15 @@ class SplashActivity : AppCompatActivity() {
 
     private fun checkInternet(){
         Handler(Looper.getMainLooper()).postDelayed({
+        if(PrefManager.getLogInStatus() == true){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }else{
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
-            finish() }, 3000)
+            finish()
+        } }, 3000)
     }
 
 }

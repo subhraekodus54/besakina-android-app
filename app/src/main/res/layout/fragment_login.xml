@@ -38,8 +38,8 @@
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:helperText=""
-        app:helperTextTextColor="@color/text_color"
-        app:hintTextColor="@color/text_color"
+        app:helperTextTextColor="@color/erro_red"
+        app:hintTextColor="@color/erro_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_2"
@@ -81,5 +81,6 @@
         android:text="Skip"
         android:textColor="@color/text_color"
         android:textSize="18dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
